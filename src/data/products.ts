@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "919999999999"; // Replace with actual number
+export const WHATSAPP_NUMBER = "918307473499"; // Replace with actual number
 
 export interface Product {
   id: string;
