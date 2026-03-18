@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
       <Navbar />
 
       {/* Hero */}
-      <div className="bg-primary text-primary-foreground px-6 py-20 text-center">
+      <div className="bg-zinc-950 text-zinc-50 px-6 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.4em] opacity-50 mb-4">Legal</p>
         <h1 className="font-display text-5xl md:text-6xl font-bold">Privacy Policy</h1>
         <p className="mt-4 text-xs opacity-40 tracking-widest">Last updated: 18 March 2026</p>

@@ -9,7 +9,7 @@ const companyLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-primary text-primary-foreground px-5 sm:px-8 lg:px-16 py-6 border-t border-primary-foreground/10">
+    <footer className="w-full bg-zinc-950 text-zinc-50 px-5 sm:px-8 lg:px-16 py-6 border-t border-white/10">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-6">
 
         {/* Brand blurb */}

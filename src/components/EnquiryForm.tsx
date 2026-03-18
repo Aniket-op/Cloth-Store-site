@@ -11,6 +11,7 @@ interface EnquiryFormProps {
 const EnquiryForm = ({ prefilledProduct }: EnquiryFormProps) => {
     const [searchParams] = useSearchParams();
     const urlCategory = searchParams.get("category") ?? "";
+    const urlSubcategory = searchParams.get("subcategory") ?? "";
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -40,12 +41,25 @@ const EnquiryForm = ({ prefilledProduct }: EnquiryFormProps) => {
         }
     }, [prefilledProduct]);
 
-    // Sync URL ?category= param whenever it changes
+    // Sync URL ?category= and ?subcategory= params whenever they change
     useEffect(() => {
-        if (!prefilledProduct && urlCategory) {
-            setFormData((prev) => ({ ...prev, category: urlCategory }));
+        if (!prefilledProduct && (urlCategory || urlSubcategory)) {
+            let prefilledDetails = "";
+            const catName = urlCategory ? urlCategory.charAt(0).toUpperCase() + urlCategory.slice(1) : "";
+
+            if (urlCategory && urlSubcategory) {
+                prefilledDetails = `I am interested in bulk ordering from the ${catName} category, specifically the ${urlSubcategory} collection.\n\nPlease provide more information regarding pricing, MOQs, and available materials.\n\nAdditional Requirements:\n`;
+            } else if (urlCategory) {
+                prefilledDetails = `I am interested in bulk ordering from the ${catName} category.\n\nPlease provide more information regarding pricing, MOQs, and available materials.\n\nAdditional Requirements:\n`;
+            }
+
+            setFormData((prev) => ({ 
+                ...prev, 
+                category: urlCategory || prev.category,
+                details: prefilledDetails || prev.details
+            }));
         }
-    }, [urlCategory, prefilledProduct]);
+    }, [urlCategory, urlSubcategory, prefilledProduct]);
 
     const [errors, setErrors] = useState<Record<string, string>>({});
 

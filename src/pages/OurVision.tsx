@@ -82,14 +82,14 @@ const OurVision = () => {
       </div>
 
       {/* CTA */}
-      <div className="bg-primary text-primary-foreground text-center py-20 px-6">
+      <div className="bg-zinc-950 text-zinc-50 text-center py-20 px-6">
         <h2 className="font-display text-4xl font-bold mb-4">Ready to Experience AURA?</h2>
         <p className="text-sm opacity-60 mb-8 max-w-md mx-auto">
           Reach out to our team for bulk orders, bespoke commissions, or simply to learn more about our collections.
         </p>
         <Link
           to="/contact"
-          className="inline-block px-10 py-4 rounded-full bg-primary-foreground text-primary text-xs font-bold tracking-[0.25em] uppercase hover:opacity-90 transition-elegant"
+          className="inline-block px-10 py-4 rounded-full bg-white text-black text-xs font-bold tracking-[0.25em] uppercase hover:opacity-90 transition-elegant"
         >
           Contact Us
         </Link>

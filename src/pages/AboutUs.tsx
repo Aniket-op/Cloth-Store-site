@@ -38,7 +38,7 @@ const AboutUs = () => {
       <Navbar />
 
       {/* Hero banner */}
-      <div className="bg-primary text-primary-foreground px-6 py-20 text-center">
+      <div className="bg-zinc-950 text-zinc-50 px-6 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.4em] opacity-50 mb-4">Who We Are</p>
         <h1 className="font-display text-5xl md:text-6xl font-bold leading-tight">About AURA</h1>
         <p className="mt-5 max-w-xl mx-auto text-sm opacity-60 leading-relaxed">
