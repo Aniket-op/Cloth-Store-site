@@ -21,8 +21,7 @@ export const aboutContent: Record<string, AboutSectionData> = {
   "philosophy-core-values": {
     title: "Philosophy and Core Values",
     description: [
-      "Precision in Every Stitch, Quality in Every Garment.",
-      "At Panchsheel Knitwears, our manufacturing philosophy is rooted in precision, durability, and uncompromising attention to detail. Since our inception, we have consistently upheld a commitment to craftsmanship and quality, ensuring that every product reflects the values on which the company was built.",
+      "Precision in Every Stitch, Quality in Every Garment. At Panchsheel Knitwears, our manufacturing philosophy is rooted in precision, durability, and uncompromising attention to detail. Since our inception, we have consistently upheld a commitment to craftsmanship and quality, ensuring that every product reflects the values on which the company was built.",
       "From the careful selection of raw materials to the final stages of finishing, each garment is developed through a disciplined and quality-driven process. We place strong emphasis on fabric integrity, stitching excellence, fit, comfort, and overall refinement. This holistic approach enables us to deliver products that are not only aesthetically appealing but also reliable, long-lasting, and aligned with the expectations of our customers.",
       "We believe that true manufacturing excellence lies in consistency, process discipline, and continuous improvement—principles that continue to guide our operations as we grow and evolve.",
       "Our core values emphasize consistency, trust, and long-term relationships. By maintaining strict quality standards and dependable production practices, Panchsheel Knitwears has earned the confidence of clients who value not only attractive apparel but also garments that deliver durability and comfort over time.",

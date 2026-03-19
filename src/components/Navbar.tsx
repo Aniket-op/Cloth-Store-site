@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
   { label: "Home", to: "/" },
-  { 
-    label: "About Us", 
+  {
+    label: "About Us",
     slug: "about",
-    subcategories: ["Our Legacy", "Philosophy & Core Values", "Mission & Vision", "Our Brands", "Our Leadership", "Company Credentials"] 
+    subcategories: ["Our Legacy", "Philosophy & Core Values", "Mission & Vision", "Our Brands", "Our Leadership", "Company Credentials"]
   },
   {
     label: "Men",
@@ -64,7 +64,6 @@ const Navbar = () => {
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
         <span className="font-display text-2xl font-bold tracking-tight text-foreground">UrbanGrand</span>
-        <span className="text-[10px] tracking-[0.2em] text-muted-soft uppercase ml-1 hidden sm:block">by Panchsheel Knitwears</span>
       </Link>
 
       {/* Desktop nav links */}
@@ -94,10 +93,10 @@ const Navbar = () => {
               {/* Dropdown menu */}
               <div className="absolute top-[64px] left-1/2 -translate-x-1/2 w-48 bg-background subtle-border-strong shadow-xl rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 py-2">
                 {item.subcategories?.map((sub) => {
-                  const toUrl = item.slug === "about" 
+                  const toUrl = item.slug === "about"
                     ? `/about/category/${sub.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`
                     : `/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`;
-                  
+
                   return (
                     <Link
                       key={sub}
@@ -198,7 +197,7 @@ const Navbar = () => {
                 <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? "max-h-96" : "max-h-0"}`}>
                   <div className="bg-soft/50 py-2">
                     {item.subcategories?.map((sub) => {
-                      const toUrlMobile = item.slug === "about" 
+                      const toUrlMobile = item.slug === "about"
                         ? `/about/category/${sub.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`
                         : `/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`;
 

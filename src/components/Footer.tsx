@@ -9,14 +9,16 @@ const companyLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-zinc-950 text-zinc-50 px-5 sm:px-8 lg:px-16 py-6 border-t border-white/10">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-6">
+    <footer className="w-full bg-zinc-950 text-zinc-50 px-5 sm:px-8 lg:px-16 py-12 lg:py-16 border-t border-white/10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 lg:gap-20">
 
         {/* Brand blurb */}
-        <div className="min-w-[160px]">
-          <Link to="/" className="font-display text-xl font-bold tracking-tight hover:opacity-80 transition-elegant">Panchsheel Knitwears</Link>
-          <p className="text-xs opacity-50 mt-1 max-w-[200px] leading-relaxed">
-            The Future of Timeless Fashion.
+        <div className="min-w-[160px] max-w-xs">
+          <Link to="/" className="font-display text-xl sm:text-2xl font-bold tracking-tight hover:opacity-80 transition-elegant leading-tight inline-block">
+            Premium Line by<br />Panchsheel<br />Knitwears
+          </Link>
+          <p className="text-xs opacity-60 mt-4 leading-relaxed tracking-wide">
+            UrbanGrand combines modern style with trusted craftsmanship, delivering elegance, comfort, and lasting quality. The Premium Line by Panchsheel Knitwears.
           </p>
         </div>
 

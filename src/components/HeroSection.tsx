@@ -13,17 +13,17 @@ const HeroSection = () => {
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
 
   return (
-    <section className="w-full px-5 sm:px-8 lg:px-16 py-10 sm:py-14">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <section className="w-full px-5 sm:px-8 lg:px-16 py-10 sm:py-14 flex items-center justify-center">
+      <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-8 lg:gap-10 items-center">
 
         {/* Left Column */}
-        <div className="order-2 lg:order-1 text-center lg:text-left">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.02em] text-foreground">
-            The Future of
+        <div className="order-2 lg:order-1 lg:w-[45%] text-center lg:text-left">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-3xl lg:text-5xl font-bold leading-[0.95] tracking-[-0.02em] text-foreground">
+            Premium Line by
             <br />
-            <span className="italic font-normal">Timeless</span>
+            <span className="italic font-normal">Panchsheel </span>
             <br />
-            Fashion
+            <span className="italic font-normal">Knitwears</span>
           </h1>
           <p className="max-w-md mx-auto lg:mx-0 text-base sm:text-lg text-muted-soft mt-5 sm:mt-6 leading-relaxed">
             UrbanGrand combines modern style with trusted craftsmanship, delivering elegance, comfort, and lasting quality. The Premium Line by Panchsheel Knitwears.
@@ -39,8 +39,8 @@ const HeroSection = () => {
         </div>
 
         {/* Right Column - Slideshow */}
-        <div className="order-1 lg:order-2 relative flex justify-center">
-          <div className="relative aspect-[3/4] w-full max-w-[320px] sm:max-w-sm lg:max-w-md rounded-[24px] overflow-hidden subtle-border-strong shadow-2xl">
+        <div className="order-1 lg:order-2 lg:w-[55%] relative flex justify-center w-full">
+          <div className="relative aspect-[4/3] w-full max-w-[320px] sm:max-w-sm md:max-w-lg lg:max-w-full rounded-[24px] overflow-hidden subtle-border-strong shadow-2xl">
             <img
               src={slides[current]}
               alt="Fashion showcase"
@@ -65,9 +65,8 @@ const HeroSection = () => {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all transition-elegant ${
-                    i === current ? "bg-foreground w-6" : "bg-foreground/30 w-2"
-                  }`}
+                  className={`h-2 rounded-full transition-all transition-elegant ${i === current ? "bg-foreground w-6" : "bg-foreground/30 w-2"
+                    }`}
                 />
               ))}
             </div>

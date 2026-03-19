@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import BrandsSection from "@/components/BrandsSection";
 import AssociatesSection from "@/components/AssociatesSection";
 import Footer from "@/components/Footer";
 
@@ -16,16 +15,10 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Page 2: Brands | Associates + Footer */}
+      {/* Page 2: Associates + Footer */}
       <div className="min-h-screen flex flex-col">
-        {/* Two-column grid — stacks on mobile */}
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-2">
-          <div className="border-b md:border-b-0 md:border-r border-border/60">
-            <BrandsSection />
-          </div>
-          <div>
-            <AssociatesSection />
-          </div>
+        <div className="flex-1 w-full max-w-[1600px] mx-auto overflow-hidden">
+          <AssociatesSection />
         </div>
 
         {/* Footer pinned at bottom */}
