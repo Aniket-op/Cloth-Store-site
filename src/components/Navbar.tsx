@@ -4,24 +4,28 @@ import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
   { 
-    label: "Men", 
+    label: "About Us", 
+    slug: "about",
+    subcategories: ["Our Legacy", "Philosophy & Core Values", "Mission & Vision", "Our Brands", "Our Leadership", "Company Credentials"] 
+  },
+  {
+    label: "Men",
     slug: "men",
     subcategories: ["Jacket", "Coats", "Sweatshirts", "Hoodies", "T-Shirts", "Lowers"]
   },
-  { 
-    label: "Women", 
+  {
+    label: "Women",
     slug: "women",
     subcategories: ["Jacket", "Coats", "Sweatshirts", "Hoodies", "Cardigans"]
   },
-  { 
-    label: "Kids", 
+  {
+    label: "Kids",
     slug: "kids",
     subcategories: ["Jacket", "Coats", "Sweaters"]
   },
-  { 
-    label: "Accessories", 
+  {
+    label: "Accessories",
     slug: "accessories",
     subcategories: ["Thermal", "Socks", "Caps", "Mufflers", "Hand Gloves"]
   },
@@ -86,18 +90,24 @@ const Navbar = () => {
               <button className="flex items-center gap-1 text-[13px] font-medium uppercase tracking-widest text-muted-soft hover:text-foreground transition-elegant">
                 {item.label} <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
               </button>
-              
+
               {/* Dropdown menu */}
               <div className="absolute top-[64px] left-1/2 -translate-x-1/2 w-48 bg-background subtle-border-strong shadow-xl rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 py-2">
-                {item.subcategories?.map((sub) => (
-                  <Link
-                    key={sub}
-                    to={`/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`}
-                    className="block px-6 py-2.5 text-sm text-muted-medium hover:text-foreground hover:bg-soft transition-colors"
-                  >
-                    {sub}
-                  </Link>
-                ))}
+                {item.subcategories?.map((sub) => {
+                  const toUrl = item.slug === "about" 
+                    ? `/about/category/${sub.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`
+                    : `/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`;
+                  
+                  return (
+                    <Link
+                      key={sub}
+                      to={toUrl}
+                      className="block px-6 py-2.5 text-sm text-muted-medium hover:text-foreground hover:bg-soft transition-colors"
+                    >
+                      {sub}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           );
@@ -107,15 +117,15 @@ const Navbar = () => {
       {/* Desktop right actions */}
       <div className="hidden md:flex items-center gap-4">
         {/* Language Dropdown */}
-        <div 
-          className="relative" 
-          onMouseEnter={() => setLangOpen(true)} 
+        <div
+          className="relative"
+          onMouseEnter={() => setLangOpen(true)}
           onMouseLeave={() => setLangOpen(false)}
         >
           <button className="flex items-center gap-1.5 text-[13px] text-muted-soft hover:text-foreground transition-elegant uppercase font-medium tracking-wide">
             <Globe size={14} /> {currentLang} <ChevronDown size={14} className={`${langOpen ? "rotate-180" : ""} transition-transform duration-300`} />
           </button>
-          
+
           <div className={`absolute top-full right-0 mt-4 w-32 bg-background subtle-border-strong shadow-xl rounded-b-md transition-all duration-300 py-1 ${langOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
             {languages.map((lang) => (
               <button
@@ -173,39 +183,45 @@ const Navbar = () => {
             }
 
             const isExpanded = mobileExpanded === item.label;
-            
+
             return (
               <div key={item.label} className="border-b border-border/40">
-                <button 
+                <button
                   onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
                   className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-medium uppercase tracking-widest text-muted-soft hover:text-foreground transition-colors"
                 >
                   {item.label}
                   <ChevronDown size={18} className={`${isExpanded ? "rotate-180" : ""} transition-transform duration-300`} />
                 </button>
-                
+
                 {/* Mobile Subcategories */}
                 <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? "max-h-96" : "max-h-0"}`}>
                   <div className="bg-soft/50 py-2">
-                    {item.subcategories?.map((sub) => (
-                      <Link
-                        key={sub}
-                        to={`/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`}
-                        onClick={() => setMobileOpen(false)}
-                        className="block px-8 py-3 text-sm text-muted-medium hover:text-foreground hover:bg-soft transition-colors"
-                      >
-                        {sub}
-                      </Link>
-                    ))}
+                    {item.subcategories?.map((sub) => {
+                      const toUrlMobile = item.slug === "about" 
+                        ? `/about/category/${sub.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`
+                        : `/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`;
+
+                      return (
+                        <Link
+                          key={sub}
+                          to={toUrlMobile}
+                          onClick={() => setMobileOpen(false)}
+                          className="block px-8 py-3 text-sm text-muted-medium hover:text-foreground hover:bg-soft transition-colors"
+                        >
+                          {sub}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             );
           })}
-          
+
           {/* Mobile Bottom Row Actions */}
           <div className="mt-auto px-6 pt-8 flex flex-col gap-6">
-            
+
             {/* Language Selector */}
             <div className="flex flex-col gap-3">
               <span className="text-xs uppercase tracking-widest text-muted-soft font-semibold">Language</span>
@@ -214,11 +230,10 @@ const Navbar = () => {
                   <button
                     key={lang}
                     onClick={() => setCurrentLang(lang)}
-                    className={`px-4 py-2 text-xs rounded-full border transition-all ${
-                      currentLang === lang 
-                        ? "border-foreground bg-foreground text-background" 
-                        : "border-border text-muted-medium hover:border-foreground/50"
-                    }`}
+                    className={`px-4 py-2 text-xs rounded-full border transition-all ${currentLang === lang
+                      ? "border-foreground bg-foreground text-background"
+                      : "border-border text-muted-medium hover:border-foreground/50"
+                      }`}
                   >
                     {lang}
                   </button>
