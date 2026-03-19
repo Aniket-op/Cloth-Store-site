@@ -7,32 +7,23 @@ import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 const brands = [
   {
-    id: "tc",
-    initials: "TC",
+    id: "kidax",
+    initials: "KX",
     icon: null,
-    name: "Terracotta Threads",
-    tagline: "Earth-toned heritage collections",
+    name: "Kidax",
+    tagline: "Comfortable, durable kidswear",
     image: heroSlide1,
-    info: "Founded in 2010, Terracotta Threads draws inspiration from ancient artisan traditions. Each piece is handcrafted using sustainably sourced earthy fabrics.",
+    info: "Kidax focuses on comfortable, durable, and stylish clothing for children. The brand is designed to support active lifestyles while ensuring softness, safety, and everyday comfort.",
   },
   {
-    id: "aurora",
-    initials: null,
+    id: "urbangrand78",
+    initials: "UG",
     icon: Star,
-    name: "Aurora",
-    tagline: "Luminous avant-garde fashion",
+    name: "UrbanGrand78",
+    tagline: "Premium, refined contemporary style",
     image: heroSlide2,
-    info: "Aurora pushes the boundaries of form and light. Known for iridescent textiles and bold silhouettes, it is the brand for the fearless modern wardrobe.",
-  },
-  {
-    id: "gg",
-    initials: "GG",
-    icon: null,
-    name: "Golden Gauge",
-    tagline: "Precision-crafted luxury wear",
-    image: heroSlide3,
-    info: "Golden Gauge blends Swiss precision with Italian tailoring. Renowned for impeccable fit and long-lasting construction in every garment.",
-  },
+    info: "UrbanGrand78 represents a premium line of apparel that blends modern design with superior fabric quality. With a focus on refined style and craftsmanship, the brand is gaining attention for its contemporary look and premium finish.",
+  }
 ];
 
 const BrandsSection = () => {
