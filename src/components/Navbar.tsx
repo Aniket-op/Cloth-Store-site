@@ -63,8 +63,8 @@ const Navbar = () => {
     <nav className="h-16 flex items-center justify-between px-5 lg:px-12 sticky top-0 z-50 glass-light subtle-border">
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
-        <span className="font-display text-2xl font-bold tracking-tight text-foreground">AURA</span>
-        <span className="text-[10px] tracking-[0.2em] text-muted-soft uppercase ml-1 hidden sm:block">Fashion</span>
+        <span className="font-display text-2xl font-bold tracking-tight text-foreground">UrbanGrand</span>
+        <span className="text-[10px] tracking-[0.2em] text-muted-soft uppercase ml-1 hidden sm:block">by Panchsheel Knitwears</span>
       </Link>
 
       {/* Desktop nav links */}

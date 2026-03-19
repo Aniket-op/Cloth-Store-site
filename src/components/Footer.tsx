@@ -14,9 +14,9 @@ const Footer = () => {
 
         {/* Brand blurb */}
         <div className="min-w-[160px]">
-          <Link to="/" className="font-display text-2xl font-bold tracking-tight hover:opacity-80 transition-elegant">AURA</Link>
+          <Link to="/" className="font-display text-xl font-bold tracking-tight hover:opacity-80 transition-elegant">Panchsheel Knitwears</Link>
           <p className="text-xs opacity-50 mt-1 max-w-[200px] leading-relaxed">
-            Premium, future-forward fashion statements.
+            The Future of Timeless Fashion.
           </p>
         </div>
 
@@ -45,10 +45,10 @@ const Footer = () => {
           </ul>
           <ul className="space-y-1.5">
             <li className="text-[10px] uppercase tracking-widest opacity-80 font-semibold mb-2">Contact</li>
-            <li>Fashion Ave, New York</li>
-            <li className="opacity-100">+1-800-AURA-GOLD</li>
+            <li>Headquarters</li>
+            <li className="opacity-100">+91-XXXXXXXXXX</li>
             <li className="opacity-100">
-              <Link to="/contact" className="hover:opacity-100 transition-elegant">inquiries@aura.fashion</Link>
+              <Link to="/contact" className="hover:opacity-100 transition-elegant">contact@panchsheel.com</Link>
             </li>
           </ul>
         </div>
@@ -61,7 +61,7 @@ const Footer = () => {
             ))}
           </div>
           <p className="text-[10px] uppercase tracking-widest opacity-30">
-            © {new Date().getFullYear()} AURA. All rights reserved.
+            © {new Date().getFullYear()} Panchsheel Knitwears. All rights reserved.
           </p>
         </div>
 

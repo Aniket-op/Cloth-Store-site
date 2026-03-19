@@ -26,14 +26,14 @@ const HeroSection = () => {
             Fashion
           </h1>
           <p className="max-w-md mx-auto lg:mx-0 text-base sm:text-lg text-muted-soft mt-5 sm:mt-6 leading-relaxed">
-            AURA curates premium, future-forward fashion statements — where modern vision meets enduring craftsmanship.
+            UrbanGrand combines modern style with trusted craftsmanship, delivering elegance, comfort, and lasting quality. The Premium Line by Panchsheel Knitwears.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-7 sm:mt-8 justify-center lg:justify-start">
-            <Link to="/vision" className="bg-primary text-primary-foreground px-8 py-4 rounded-sm font-semibold tracking-wide hover:opacity-90 transition-elegant text-center">
-              Explore Our Vision
+            <Link to="/about/category/mission-vision" className="bg-primary text-primary-foreground px-8 py-4 rounded-sm font-semibold tracking-wide hover:opacity-90 transition-elegant text-center">
+              Our Vision
             </Link>
-            <Link to="/story" className="subtle-border-strong px-8 py-4 rounded-sm text-foreground hover:bg-soft transition-elegant font-medium text-center">
-              Our Story
+            <Link to="/about/category/our-legacy" className="subtle-border-strong px-8 py-4 rounded-sm text-foreground hover:bg-soft transition-elegant font-medium text-center">
+              Our Legacy
             </Link>
           </div>
         </div>
