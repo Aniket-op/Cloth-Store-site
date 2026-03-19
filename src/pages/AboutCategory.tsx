@@ -1,7 +1,38 @@
+import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { aboutContent } from "@/data/aboutContent";
+
+const ImageCarousel = ({ images, title, idx }: { images: string[], title: string, idx: number }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000 + (idx % 3) * 500); // stagger animations
+    return () => clearInterval(timer);
+  }, [images.length, idx]);
+
+  return (
+    <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] w-full max-w-md overflow-hidden rounded-sm lg:rounded-2xl shadow-xl group/carousel">
+      <div className="absolute inset-0 bg-black/5 z-10 pointer-events-none" />
+      {images.map((img, i) => (
+        <img
+          key={i}
+          src={img}
+          alt={`${title} section ${idx + 1} image ${i + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === currentIndex ? 'opacity-100 block' : 'opacity-0'}`}
+        />
+      ))}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+        {images.map((_, i) => (
+          <div key={i} className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-white scale-125' : 'bg-white/50'}`} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const AboutCategory = () => {
   const { section } = useParams<{ section: string }>();
@@ -32,8 +63,9 @@ const AboutCategory = () => {
         {/* Zig-Zag Content Rows */}
         <div className="flex flex-col gap-20 md:gap-32">
           {data.description.map((para, idx) => {
-            const imageUrl = data.images[idx % data.images.length];
             const isEven = idx % 2 === 0;
+            // Generate a simple attribute heading
+            const heading = idx === 0 ? "Overview" : idx === 1 ? "Our Approach" : idx === 2 ? "Commitment" : `Aspect ${idx + 1}`;
 
             return (
               <div
@@ -42,21 +74,17 @@ const AboutCategory = () => {
               >
                 {/* Content Side */}
                 <div className="w-full lg:w-5/12 flex flex-col justify-center space-y-6 animate-fade-in order-2 lg:order-none">
-                  <p className="text-base md:text-lg lg:text-xl text-muted-medium leading-relaxed font-light">
+                  <h3 className="text-2xl font-display font-semibold text-foreground border-b border-border pb-2 inline-block self-start">
+                    {heading}
+                  </h3>
+                  <p className="text-base md:text-lg lg:text-xl text-muted-medium leading-relaxed font-light text-justify">
                     {para}
                   </p>
                 </div>
 
-                {/* Image Side */}
+                {/* Image Side (Carousel) */}
                 <div className="w-full lg:w-5/12 flex justify-center animate-scale-in order-1 lg:order-none">
-                  <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] w-full max-w-md overflow-hidden rounded-sm lg:rounded-2xl shadow-xl">
-                    <div className="absolute inset-0 bg-black/5 z-10 pointer-events-none" />
-                    <img
-                      src={imageUrl}
-                      alt={`${data.title} section ${idx + 1}`}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-[1.03]"
-                    />
-                  </div>
+                  <ImageCarousel images={data.images} title={data.title} idx={idx} />
                 </div>
               </div>
             );

@@ -13,6 +13,8 @@ import OurVision from "./pages/OurVision.tsx";
 import OurStory from "./pages/OurStory.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
+import FAQ from "./pages/FAQ.tsx";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,6 +27,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/about/category/:section" element={<AboutCategory />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/contact" element={<Contact />} />

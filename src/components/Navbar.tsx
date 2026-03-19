@@ -1,4 +1,4 @@
-import { ChevronDown, Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { ChevronDown, Menu, X, Sun, Moon, Globe, Monitor } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -40,20 +40,39 @@ const Navbar = () => {
 
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
+      return localStorage.getItem("theme") || "system";
     }
-    return "light";
+    return "system";
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
-    root.classList.add(theme);
+    
+    if (theme === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.classList.add(systemTheme);
+      
+      const listener = (e: MediaQueryListEvent) => {
+        if (theme === 'system') {
+           root.classList.remove("light", "dark");
+           root.classList.add(e.matches ? 'dark' : 'light');
+        }
+      };
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', listener);
+      return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', listener);
+    } else {
+      root.classList.add(theme);
+    }
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => {
+      if (prev === 'light') return 'dark';
+      if (prev === 'dark') return 'system';
+      return 'light';
+    });
   };
 
   const [langOpen, setLangOpen] = useState(false);
@@ -75,7 +94,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.to}
-                className={`text-[13px] font-medium uppercase tracking-widest transition-elegant relative group ${active ? "text-foreground" : "text-muted-soft hover:text-foreground"}`}
+                className={`text-[13px] font-semibold uppercase tracking-widest transition-elegant relative group ${active ? "text-foreground" : "text-foreground/80 hover:text-foreground"}`}
               >
                 {item.label}
                 <span className={`absolute bottom-[-4px] left-0 w-full h-[0.5px] bg-foreground transition-transform transition-elegant origin-left ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
@@ -86,7 +105,7 @@ const Navbar = () => {
           // Dropdown for Men, Women, Kids, Accessories
           return (
             <div key={item.label} className="relative group h-full flex items-center">
-              <button className="flex items-center gap-1 text-[13px] font-medium uppercase tracking-widest text-muted-soft hover:text-foreground transition-elegant">
+              <button className="flex items-center gap-1 text-[13px] font-semibold uppercase tracking-widest text-foreground/80 hover:text-foreground transition-elegant">
                 {item.label} <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
               </button>
 
@@ -121,7 +140,7 @@ const Navbar = () => {
           onMouseEnter={() => setLangOpen(true)}
           onMouseLeave={() => setLangOpen(false)}
         >
-          <button className="flex items-center gap-1.5 text-[13px] text-muted-soft hover:text-foreground transition-elegant uppercase font-medium tracking-wide">
+          <button className="flex items-center gap-1.5 text-[13px] text-foreground/80 hover:text-foreground transition-elegant uppercase font-semibold tracking-wide">
             <Globe size={14} /> {currentLang} <ChevronDown size={14} className={`${langOpen ? "rotate-180" : ""} transition-transform duration-300`} />
           </button>
 
@@ -141,10 +160,11 @@ const Navbar = () => {
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-soft transition-elegant text-muted-soft hover:text-foreground ml-2 mr-1"
+          className="p-2 rounded-full hover:bg-soft transition-elegant text-foreground/80 hover:text-foreground ml-2 mr-1"
           aria-label="Toggle theme"
+          title={`Theme: ${theme}`}
         >
-          {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+          {theme === "light" ? <Sun size={16} /> : theme === "dark" ? <Moon size={16} /> : <Monitor size={16} />}
         </button>
 
         <Link
@@ -174,7 +194,7 @@ const Navbar = () => {
                   key={item.label}
                   to={item.to}
                   onClick={() => setMobileOpen(false)}
-                  className="px-6 py-4 text-[15px] font-medium uppercase tracking-widest text-muted-soft hover:text-foreground hover:bg-soft transition-colors border-b border-border/40"
+                  className="px-6 py-4 text-[15px] font-semibold uppercase tracking-widest text-foreground/80 hover:text-foreground hover:bg-soft transition-colors border-b border-border/40"
                 >
                   {item.label}
                 </Link>
@@ -187,7 +207,7 @@ const Navbar = () => {
               <div key={item.label} className="border-b border-border/40">
                 <button
                   onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-medium uppercase tracking-widest text-muted-soft hover:text-foreground transition-colors"
+                  className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-semibold uppercase tracking-widest text-foreground/80 hover:text-foreground transition-colors"
                 >
                   {item.label}
                   <ChevronDown size={18} className={`${isExpanded ? "rotate-180" : ""} transition-transform duration-300`} />
@@ -243,10 +263,12 @@ const Navbar = () => {
             <div className="flex items-center justify-between pt-6 border-t border-border/40">
               <button
                 onClick={toggleTheme}
-                className="flex items-center gap-2 p-2 rounded-full hover:bg-soft transition-elegant text-muted-medium hover:text-foreground font-medium text-sm"
+                className="flex items-center gap-2 p-2 rounded-full hover:bg-soft transition-elegant text-foreground/80 hover:text-foreground font-semibold text-sm"
               >
                 {theme === "light" ? (
                   <><Moon size={18} /> Dark Mode</>
+                ) : theme === "dark" ? (
+                  <><Monitor size={18} /> System Mode</>
                 ) : (
                   <><Sun size={18} /> Light Mode</>
                 )}

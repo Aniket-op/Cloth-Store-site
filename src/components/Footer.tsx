@@ -1,72 +1,115 @@
-import { Linkedin, Facebook, Instagram } from "lucide-react";
+import { Linkedin, Facebook, Instagram, MapPin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const companyLinks = [
   { label: "About Us", to: "/about" },
   { label: "Privacy Policy", to: "/privacy" },
   { label: "Terms of Use", to: "/terms" },
+  { label: "FAQ", to: "/faq" },
+];
+
+const platformLinks = [
+  { label: "Men", to: "/contact?category=men" },
+  { label: "Women", to: "/contact?category=women" },
+  { label: "Kids", to: "/contact?category=kids" },
+  { label: "Accessories", to: "/contact?category=accessories" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-zinc-950 text-zinc-50 px-5 sm:px-8 lg:px-16 py-12 lg:py-16 border-t border-white/10">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 lg:gap-20">
+    <footer className="w-full bg-[#0a0a0a] text-zinc-300 px-5 sm:px-8 lg:px-16 pt-16 pb-8 font-sans">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-16">
 
-        {/* Brand blurb */}
-        <div className="min-w-[160px] max-w-xs">
-          <Link to="/" className="font-display text-xl sm:text-2xl font-bold tracking-tight hover:opacity-80 transition-elegant leading-tight inline-block">
-            Premium Line by<br />Panchsheel<br />Knitwears
+        {/* Brand & Info Column */}
+        <div className="flex flex-col gap-6 lg:w-1/4">
+          <Link to="/" className="inline-block">
+            {/* Using text logo instead of image for now, matching the vibe */}
+            <div className="bg-white text-black px-4 py-2 inline-block font-display font-bold text-xl rounded-sm">
+              UrbanGrand
+            </div>
           </Link>
-          <p className="text-xs opacity-60 mt-4 leading-relaxed tracking-wide">
-            UrbanGrand combines modern style with trusted craftsmanship, delivering elegance, comfort, and lasting quality. The Premium Line by Panchsheel Knitwears.
-          </p>
-        </div>
-
-        {/* Links */}
-        <div className="flex flex-wrap gap-8 text-sm opacity-50">
-          <ul className="space-y-1.5">
-            <li className="text-[10px] uppercase tracking-widest opacity-80 font-semibold mb-2">Platform</li>
-            {[
-              { label: "Men", to: "/contact?category=men" },
-              { label: "Women", to: "/contact?category=women" },
-              { label: "Kids", to: "/contact?category=kids" },
-              { label: "Accessories", to: "/contact?category=accessories" },
-            ].map((item) => (
-              <li key={item.label}>
-                <Link to={item.to} className="hover:opacity-100 transition-elegant">{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-1.5">
-            <li className="text-[10px] uppercase tracking-widest opacity-80 font-semibold mb-2">Company</li>
-            {companyLinks.map((item) => (
-              <li key={item.label}>
-                <Link to={item.to} className="hover:opacity-100 transition-elegant">{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-1.5">
-            <li className="text-[10px] uppercase tracking-widest opacity-80 font-semibold mb-2">Contact</li>
-            <li>Headquarters</li>
-            <li className="opacity-100">+91-XXXXXXXXXX</li>
-            <li className="opacity-100">
-              <Link to="/contact" className="hover:opacity-100 transition-elegant">contact@panchsheel.com</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Social + copyright */}
-        <div className="flex flex-col items-start md:items-end gap-3">
-          <div className="flex gap-4">
+          <div className="space-y-1.5 text-sm text-zinc-400 font-medium tracking-wide">
+            <p className="text-zinc-300">Panchsheel Knitwears Private Limited</p>
+            <p>CIN: U18101PB1978PTCXXXXXX</p>
+          </div>
+          {/* Social Icons */}
+          <div className="flex gap-3 mt-2">
             {[Linkedin, Facebook, Instagram].map((Icon, i) => (
-              <a key={i} href="#" className="opacity-40 hover:opacity-100 transition-elegant"><Icon size={16} /></a>
+              <a key={i} href="#" className="flex items-center justify-center w-8 h-8 rounded-md bg-zinc-800/80 hover:bg-zinc-700 transition-colors text-zinc-400 hover:text-white">
+                <Icon size={16} />
+              </a>
             ))}
           </div>
-          <p className="text-[10px] uppercase tracking-widest opacity-30">
-            © {new Date().getFullYear()} Panchsheel Knitwears. All rights reserved.
-          </p>
         </div>
 
+        {/* Links Columns container */}
+        <div className="flex flex-col md:flex-row gap-12 lg:gap-24 lg:w-3/4 lg:justify-end">
+
+          {/* Platform */}
+          <div className="flex flex-col gap-6 min-w-[140px]">
+            <h3 className="text-white font-semibold text-[15px]">Platform</h3>
+            <ul className="space-y-4">
+              {platformLinks.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="flex items-center text-[13px] text-zinc-400 hover:text-white transition-colors">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-500 mr-3 flex-shrink-0" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div className="flex flex-col gap-6 min-w-[140px]">
+            <h3 className="text-white font-semibold text-[15px]">Company</h3>
+            <ul className="space-y-4">
+              {companyLinks.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="flex items-center text-[13px] text-zinc-400 hover:text-white transition-colors">
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 mr-3 flex-shrink-0" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="flex flex-col gap-6 min-w-[200px]">
+            <h3 className="text-white font-semibold text-[15px]">Contact</h3>
+            <ul className="space-y-4 text-[13px] text-zinc-400">
+              <li>
+                <a href="mailto:contact@panchsheel.com" className="flex items-center hover:text-white transition-colors">
+                  <Mail size={16} className="text-gray-500 mr-3 flex-shrink-0" />
+                  contact@panchsheel.com
+                </a>
+              </li>
+              <li>
+                <div className="flex items-start">
+                  <Phone size={16} className="text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <div className="flex flex-col gap-1">
+                    <span>+91 98765 43210</span>
+                    <span>+91 12345 67890</span>
+                  </div>
+                </div>
+              </li>
+              <li className="pt-2">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center text-zinc-400 hover:text-white transition-colors">
+                  <MapPin size={16} className="text-gray-500 mr-3 flex-shrink-0" />
+                  Headquarters
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto border-t border-zinc-800/60 pt-6">
+        <p className="text-[11px] text-zinc-500 font-medium">
+          © {new Date().getFullYear()} Panchsheel Knitwears Private Limited. All rights reserved.
+        </p>
       </div>
     </footer>
   );
