@@ -1,5 +1,6 @@
 import { Linkedin, Facebook, Instagram, MapPin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import logoUrl from "@/assets/urbangrant.jpeg";
 
 const companyLinks = [
   { label: "About Us", to: "/about" },
@@ -23,10 +24,7 @@ const Footer = () => {
         {/* Brand & Info Column */}
         <div className="flex flex-col gap-6 lg:w-1/4">
           <Link to="/" className="inline-block">
-            {/* Using text logo instead of image for now, matching the vibe */}
-            <div className="bg-white text-black px-4 py-2 inline-block font-display font-bold text-xl rounded-sm">
-              UrbanGrand
-            </div>
+            <img src={logoUrl} alt="UrbanGrand Logo" className="h-14 w-auto rounded-sm bg-white p-1" />
           </Link>
           <div className="space-y-1.5 text-sm text-zinc-400 font-medium tracking-wide">
             <p className="text-zinc-300">Panchsheel Knitwears Private Limited</p>

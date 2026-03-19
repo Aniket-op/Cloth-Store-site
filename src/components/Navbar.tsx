@@ -1,6 +1,7 @@
 import { ChevronDown, Menu, X, Sun, Moon, Globe, Monitor } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logoUrl from "@/assets/urbangrant.jpeg";
 
 const menuItems = [
   { label: "Home", to: "/" },
@@ -82,7 +83,7 @@ const Navbar = () => {
     <nav className="h-16 flex items-center justify-between px-5 lg:px-12 sticky top-0 z-50 glass-light subtle-border">
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
-        <span className="font-display text-2xl font-bold tracking-tight text-foreground">UrbanGrand</span>
+        <img src={logoUrl} alt="UrbanGrand Logo" className="h-10 w-auto rounded-sm mix-blend-multiply dark:mix-blend-normal dark:bg-white dark:p-1" />
       </Link>
 
       {/* Desktop nav links */}

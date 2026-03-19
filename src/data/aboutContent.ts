@@ -1,6 +1,8 @@
-import image1 from "@/assets/Our-Legacy-1.png"
-import image2 from "@/assets/Our-Legacy-2.png"
-import image3 from "@/assets/Our-Legacy-4.png"
+import image1 from "@/assets/Our-Legacy-1.png";
+import image2 from "@/assets/Our-Legacy-2.png";
+import image3 from "@/assets/Our-Legacy-4.png";
+// import kidaxLogo from "@/assets/kidax.jpeg";
+// import pkLogo from "@/assets/Panchsheel-Knitwears.jpeg";
 
 export interface AboutSectionData {
   title: string;
