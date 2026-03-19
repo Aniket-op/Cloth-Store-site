@@ -62,30 +62,32 @@ const AboutCategory = () => {
 
         {/* Zig-Zag Content Rows */}
         <div className="flex flex-col gap-20 md:gap-32">
-          {data.description.map((para, idx) => {
+          {data.description.map(({ heading, content, hideImage }, idx) => {
             const isEven = idx % 2 === 0;
-            // Generate a simple attribute heading
-            const heading = idx === 0 ? "Overview" : idx === 1 ? "Our Approach" : idx === 2 ? "Commitment" : `Aspect ${idx + 1}`;
 
             return (
               <div
                 key={idx}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center justify-center gap-12 lg:gap-24 group`}
+                className={`flex flex-col ${hideImage ? 'items-center text-center' : isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center justify-center gap-12 lg:gap-24 group`}
               >
                 {/* Content Side */}
-                <div className="w-full lg:w-5/12 flex flex-col justify-center space-y-6 animate-fade-in order-2 lg:order-none">
-                  <h3 className="text-2xl font-display font-semibold text-foreground border-b border-border pb-2 inline-block self-start">
-                    {heading}
-                  </h3>
-                  <p className="text-base md:text-lg lg:text-xl text-muted-medium leading-relaxed font-light text-justify">
-                    {para}
+                <div className={`w-full ${hideImage ? 'lg:w-8/12 text-center' : 'lg:w-5/12'} flex flex-col justify-center space-y-6 animate-fade-in order-2 lg:order-none`}>
+                  {heading && (
+                    <h3 className={`text-2xl font-display font-semibold text-foreground border-b border-border pb-2 inline-block ${hideImage ? 'mx-auto' : 'self-start'}`}>
+                      {heading}
+                    </h3>
+                  )}
+                  <p className={`text-base md:text-lg lg:text-xl text-muted-medium leading-relaxed font-light ${hideImage ? 'text-center' : 'text-justify'}`}>
+                    {content}
                   </p>
                 </div>
 
                 {/* Image Side (Carousel) */}
-                <div className="w-full lg:w-5/12 flex justify-center animate-scale-in order-1 lg:order-none">
-                  <ImageCarousel images={data.images} title={data.title} idx={idx} />
-                </div>
+                {!hideImage && (
+                  <div className="w-full lg:w-5/12 flex justify-center animate-scale-in order-1 lg:order-none">
+                    <ImageCarousel images={data.images} title={data.title} idx={idx} />
+                  </div>
+                )}
               </div>
             );
           })}
