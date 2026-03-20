@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
+import { Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { aboutContent } from "@/data/aboutContent";
+import brochurePdf from "@/assets/PANCHSHEEL-PROFILE-LATEST.pdf";
 
 const ImageCarousel = ({ images, title, idx }: { images: string[], title: string, idx: number }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -92,7 +94,16 @@ const AboutCategory = () => {
             );
           })}
         </div>
-
+        {section === "our-legacy" && (
+          <a
+            href={brochurePdf}
+            download="PANCHSHEEL_BROCHURE.pdf"
+            className="mt-8 mx-auto flex w-fit items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold tracking-wide hover:opacity-90 transition-elegant"
+          >
+            <Download size={18} />
+            Download Brochure
+          </a>
+        )}
       </main>
 
       <Footer />

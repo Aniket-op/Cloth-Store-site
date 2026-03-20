@@ -2,13 +2,14 @@ import { ChevronDown, Menu, X, Sun, Moon, Globe, Monitor } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logoUrl from "@/assets/urbangrant.jpeg";
+import brochurePdf from "@/assets/PANCHSHEEL-PROFILE-LATEST.pdf";
 
 const menuItems = [
   { label: "Home", to: "/" },
   {
     label: "About Us",
     slug: "about",
-    subcategories: ["Our Legacy", "Philosophy & Core Values", "Mission & Vision", "Our Brands", "Our Leadership", "Company Credentials"]
+    subcategories: ["Our Legacy", "Philosophy & Core Values", "Mission & Vision", "Our Brands", "Our Leadership", "Company Credentials", "Brochure"]
   },
   {
     label: "Men",
@@ -113,6 +114,19 @@ const Navbar = () => {
               {/* Dropdown menu */}
               <div className="absolute top-[64px] left-1/2 -translate-x-1/2 w-48 bg-background subtle-border-strong shadow-xl rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 py-2">
                 {item.subcategories?.map((sub) => {
+                  if (sub === "Brochure") {
+                    return (
+                      <a
+                        key={sub}
+                        href={brochurePdf}
+                        download="PANCHSHEEL_BROCHURE.pdf"
+                        className="block px-6 py-2.5 text-sm text-muted-medium hover:text-foreground hover:bg-soft transition-colors"
+                      >
+                        {sub}
+                      </a>
+                    );
+                  }
+
                   const toUrl = item.slug === "about"
                     ? `/about/category/${sub.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`
                     : `/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`;
@@ -218,6 +232,20 @@ const Navbar = () => {
                 <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? "max-h-96" : "max-h-0"}`}>
                   <div className="bg-soft/50 py-2">
                     {item.subcategories?.map((sub) => {
+                      if (sub === "Brochure") {
+                        return (
+                          <a
+                            key={sub}
+                            href={brochurePdf}
+                            download="PANCHSHEEL_BROCHURE.pdf"
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-8 py-3 text-sm text-muted-medium hover:text-foreground hover:bg-soft transition-colors"
+                          >
+                            {sub}
+                          </a>
+                        );
+                      }
+
                       const toUrlMobile = item.slug === "about"
                         ? `/about/category/${sub.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`
                         : `/contact?category=${item.slug}&subcategory=${encodeURIComponent(sub)}`;

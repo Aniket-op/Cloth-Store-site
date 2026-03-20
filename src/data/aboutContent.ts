@@ -1,8 +1,8 @@
 import image1 from "@/assets/Our-Legacy-1.png";
 import image2 from "@/assets/Our-Legacy-2.png";
 import image3 from "@/assets/Our-Legacy-4.png";
-// import kidaxLogo from "@/assets/kidax.jpeg";
-// import pkLogo from "@/assets/Panchsheel-Knitwears.jpeg";
+import image5 from "@/assets/Our-Legacy-5.png";
+
 
 export interface AboutSectionData {
   title: string;
@@ -20,9 +20,10 @@ export const aboutContent: Record<string, AboutSectionData> = {
     description: [
       { heading: "Overview", content: "Panchsheel Knitwears was established in 1978, when garment manufacturing activities were initiated by the founding family, laying a strong foundation built on craftsmanship, consistency, and customer trust. Over the years, this legacy has been carefully nurtured and expanded, reflecting both growth and continuity.", },
       { heading: "Our Approach", content: "Today, Panchsheel Knitwears specializes in knitwear, cloth apparel, kidswear, thermal wear, and other garment categories, catering to diverse market needs with dedication and professionalism.", },
-      { heading: "Commitment", content: "Since its inception, the organization has consistently believed that true success lies not only in production capacity but also in a strong commitment to quality assurance, timely delivery, and customer satisfaction. Whether handling small consignments or large-volume orders, the company maintains high production standards and reliable delivery, making it a trusted partner in garment manufacturing." }
+      { heading: "Commitment", content: "Since its inception, the organization has consistently believed that true success lies not only in production capacity but also in a strong commitment to quality assurance, timely delivery, and customer satisfaction. Whether handling small consignments or large-volume orders, the company maintains high production standards and reliable delivery, making it a trusted partner in garment manufacturing." },
+      { heading: "Our Infrastructure", content: "We operate with advanced, state-of-the-art machinery across all departments in our both manufacturing units in Punjab. Equipped with technology sourced from leading global manufacturers, our facilities are designed to deliver international-standard garments with tailored accuracy and cohesion." }
     ],
-    images: [image1, image2, image3]
+    images: [image1, image2, image3, image5]
   },
   "philosophy-core-values": {
     title: "Philosophy and Core Values",
