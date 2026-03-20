@@ -8,6 +8,9 @@ import infra3 from "@/assets/infra3.png";
 import kidaxLogo from "@/assets/kidax.jpeg";
 import urbangrantLogo from "@/assets/urbangrant.jpeg";
 import PanchsheelKnitwearsLogo from "@/assets/Panchsheel-Knitwears.jpeg";
+import gst from "@/assets/gst_certificate.png";
+import udyam1 from "@/assets/UDYAM_REGISTRATION_CERTIFICATE.png";
+import udyam2 from "@/assets/UDYAM_REGISTRATION_CERTIFICATE2.png";
 export interface AboutSectionData {
   title: string;
   description: {
@@ -68,7 +71,7 @@ export const aboutContent: Record<string, AboutSectionData> = {
   "company-credentials": {
     title: "Company Credentials",
     description: [
-      { heading: "", content: "Panchsheel Knitwears operates as a legally registered business entity and complies with all applicable regulatory requirements. The company holds official registrations including GST and Udyam (MSME) certification, reflecting its commitment to transparent and compliant business operations.", },
+      { heading: "", content: "Panchsheel Knitwears operates as a legally registered business entity and complies with all applicable regulatory requirements. The company holds official registrations including GST and Udyam (MSME) certification, reflecting its commitment to transparent and compliant business operations.", customImage: [gst, udyam1, udyam2] },
     ],
     images: [image3, image2, image1]
   }

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { aboutContent } from "@/data/aboutContent";
 import brochurePdf from "@/assets/PANCHSHEEL-PROFILE-LATEST.pdf";
 
-const ImageCarousel = ({ images, title, idx }: { images: string[], title: string, idx: number }) => {
+const ImageCarousel = ({ images, title, idx, isCertificate = false }: { images: string[], title: string, idx: number, isCertificate?: boolean }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -17,19 +17,19 @@ const ImageCarousel = ({ images, title, idx }: { images: string[], title: string
   }, [images.length, idx]);
 
   return (
-    <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] w-full max-w-md overflow-hidden rounded-sm lg:rounded-2xl shadow-xl group/carousel">
+    <div className={`relative w-full max-w-md overflow-hidden rounded-sm lg:rounded-2xl shadow-xl group/carousel ${isCertificate ? 'aspect-[3/4] bg-white' : 'aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3]'}`}>
       <div className="absolute inset-0 bg-black/5 z-10 pointer-events-none" />
       {images.map((img, i) => (
         <img
           key={i}
           src={img}
           alt={`${title} section ${idx + 1} image ${i + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === currentIndex ? 'opacity-100 block' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isCertificate ? 'object-contain p-2' : 'object-cover'} ${i === currentIndex ? 'opacity-100 block' : 'opacity-0'}`}
         />
       ))}
       <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
         {images.map((_, i) => (
-          <div key={i} className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-white scale-125' : 'bg-white/50'}`} />
+          <div key={i} className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-black/70 scale-125' : 'bg-black/30'} ${!isCertificate && (i === currentIndex ? '!bg-white' : '!bg-white/50')}`} />
         ))}
       </div>
     </div>
@@ -91,9 +91,9 @@ const AboutCategory = () => {
                 {!hideImage && (
                   <div className="w-full lg:w-5/12 flex justify-center animate-scale-in order-1 lg:order-none">
                     {customImage ? (
-                      <ImageCarousel images={customImage} title={heading || data.title} idx={idx} />
+                      <ImageCarousel images={customImage} title={heading || data.title} idx={idx} isCertificate={section === 'company-credentials'} />
                     ) : (
-                      <ImageCarousel images={data.images} title={data.title} idx={idx} />
+                      <ImageCarousel images={data.images} title={data.title} idx={idx} isCertificate={section === 'company-credentials'} />
                     )}
                   </div>
                 )}

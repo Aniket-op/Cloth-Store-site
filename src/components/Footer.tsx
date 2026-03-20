@@ -106,7 +106,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto border-t border-zinc-800/60 pt-6">
         <p className="text-[11px] text-zinc-500 font-medium">
-          © {new Date().getFullYear()} Panchsheel Knitwears Private Limited. All rights reserved.
+          © {new Date().getFullYear()} Panchsheel Knitwears. All rights reserved.
         </p>
       </div>
     </footer>
