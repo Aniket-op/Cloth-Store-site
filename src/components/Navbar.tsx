@@ -49,15 +49,15 @@ const Navbar = () => {
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
-    
+
     if (theme === 'system') {
       const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       root.classList.add(systemTheme);
-      
+
       const listener = (e: MediaQueryListEvent) => {
         if (theme === 'system') {
-           root.classList.remove("light", "dark");
-           root.classList.add(e.matches ? 'dark' : 'light');
+          root.classList.remove("light", "dark");
+          root.classList.add(e.matches ? 'dark' : 'light');
         }
       };
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', listener);
@@ -80,10 +80,10 @@ const Navbar = () => {
   const [currentLang, setCurrentLang] = useState("English");
 
   return (
-    <nav className="h-16 flex items-center justify-between px-5 lg:px-12 sticky top-0 z-50 glass-light subtle-border">
+    <nav className="h-20 flex items-center justify-between px-5 lg:px-12 sticky top-0 z-50 glass-light subtle-border">
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
-        <img src={logoUrl} alt="UrbanGrand Logo" className="h-10 w-auto rounded-sm mix-blend-multiply dark:mix-blend-normal dark:bg-white dark:p-1" />
+        <img src={logoUrl} alt="UrbanGrand Logo" className="h-14 w-auto rounded-sm mix-blend-multiply dark:mix-blend-normal dark:bg-white dark:p-1" />
       </Link>
 
       {/* Desktop nav links */}

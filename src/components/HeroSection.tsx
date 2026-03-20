@@ -1,16 +1,24 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide2 from "@/assets/Home-1.png";
+import heroSlide3 from "@/assets/Home-2.png";
 
-const slides = [heroSlide1, heroSlide2];
+const slides = [heroSlide1, heroSlide2, heroSlide3];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
 
   const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
+    }, 10000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section className="w-full px-5 sm:px-8 lg:px-16 py-10 sm:py-14 flex items-center justify-center">
@@ -26,7 +34,7 @@ const HeroSection = () => {
             <span className="italic font-normal">Knitwears</span>
           </h1>
           <p className="max-w-md mx-auto lg:mx-0 text-base sm:text-lg text-muted-soft mt-5 sm:mt-6 leading-relaxed">
-            UrbanGrand combines modern style with trusted craftsmanship, delivering elegance, comfort, and lasting quality. The Premium Line by Panchsheel Knitwears.
+            UrbanGrand combines modern style with trusted craftsmanship, delivering elegance, comfort, and lasting quality.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-7 sm:mt-8 justify-center lg:justify-start">
             <Link to="/about/category/mission-vision" className="bg-primary text-primary-foreground px-8 py-4 rounded-sm font-semibold tracking-wide hover:opacity-90 transition-elegant text-center">
