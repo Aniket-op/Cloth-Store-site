@@ -77,24 +77,25 @@ const Footer = () => {
             <h3 className="text-white font-semibold text-[15px]">Contact</h3>
             <ul className="space-y-4 text-[13px] text-zinc-400">
               <li>
-                <a href="mailto:contact@panchsheel.com" className="flex items-center hover:text-white transition-colors">
+                <a href="mailto:URBANGRAND78@GMAIL.COM" className="flex items-center hover:text-white transition-colors lowercase">
                   <Mail size={16} className="text-gray-500 mr-3 flex-shrink-0" />
-                  contact@panchsheel.com
+                  URBANGRAND78@GMAIL.COM
                 </a>
               </li>
               <li>
                 <div className="flex items-start">
                   <Phone size={16} className="text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
                   <div className="flex flex-col gap-1">
-                    <span>+91 98765 43210</span>
-                    <span>+91 12345 67890</span>
+                    <span>(+91) 76968-80871</span>
+                    <span>(+91) 94170-15928</span>
+                    <span>(+91) 98888-91485</span>
                   </div>
                 </div>
               </li>
               <li className="pt-2">
-                <a href="https://maps.app.goo.gl/QQFf4Q21gVMyjt8F8" target="_blank" rel="noopener noreferrer" className="flex items-center text-zinc-400 hover:text-white transition-colors">
-                  <MapPin size={16} className="text-gray-500 mr-3 flex-shrink-0" />
-                  Location
+                <a href="https://maps.app.goo.gl/QQFf4Q21gVMyjt8F8" target="_blank" rel="noopener noreferrer" className="flex items-start text-zinc-400 hover:text-white transition-colors">
+                  <MapPin size={16} className="text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">213/15-C, NEW KUNDAN PURI,<br />CIVIL LINES, LUDHIANA-141001 PUNJAB</span>
                 </a>
               </li>
             </ul>

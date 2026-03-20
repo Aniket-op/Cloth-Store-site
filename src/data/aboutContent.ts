@@ -31,7 +31,7 @@ export const aboutContent: Record<string, AboutSectionData> = {
   "philosophy-core-values": {
     title: "Philosophy and Core Values",
     description: [
-      { heading: "Philosophy", content: "Precision in Every Stitch, Quality in Every Garment. At Panchsheel Knitwears, our manufacturing philosophy is rooted in precision, durability, and uncompromising attention to detail. From the careful selection of raw materials to the final stages of finishing, each garment is developed through a disciplined and quality-driven process.", },
+      { heading: "Philosophy", content: "At Panchsheel Knitwears, our manufacturing philosophy is rooted in precision, durability, and uncompromising attention to detail. From the careful selection of raw materials to the final stages of finishing, each garment is developed through a disciplined and quality-driven process.", },
       { heading: "Core Values", content: "We believe that true manufacturing excellence lies in consistency, process discipline, and continuous improvement. Our core values emphasize consistency, trust, and long-term relationships, earning the confidence of clients who value attractive apparel and enduring quality.", },
     ],
     images: [image2, image3, image1]
@@ -65,7 +65,7 @@ export const aboutContent: Record<string, AboutSectionData> = {
   "company-credentials": {
     title: "Company Credentials",
     description: [
-      { heading: "", content: "Panchsheel Knitwears operates as a legally registered business entity and complies with all applicable regulatory requirements. The company holds official registrations including CIN, GST, and Udyam (MSME) certification, reflecting its commitment to transparent and compliant business operations.", },
+      { heading: "", content: "Panchsheel Knitwears operates as a legally registered business entity and complies with all applicable regulatory requirements. The company holds official registrations including GST and Udyam (MSME) certification, reflecting its commitment to transparent and compliant business operations.", },
     ],
     images: [image3, image2, image1]
   }
