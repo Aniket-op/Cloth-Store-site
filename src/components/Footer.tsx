@@ -92,9 +92,9 @@ const Footer = () => {
                 </div>
               </li>
               <li className="pt-2">
-                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center text-zinc-400 hover:text-white transition-colors">
+                <a href="https://maps.app.goo.gl/QQFf4Q21gVMyjt8F8" target="_blank" rel="noopener noreferrer" className="flex items-center text-zinc-400 hover:text-white transition-colors">
                   <MapPin size={16} className="text-gray-500 mr-3 flex-shrink-0" />
-                  Headquarters
+                  Location
                 </a>
               </li>
             </ul>
