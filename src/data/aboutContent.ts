@@ -2,7 +2,9 @@ import image1 from "@/assets/Our-Legacy-1.png";
 import image2 from "@/assets/Our-Legacy-2.png";
 import image3 from "@/assets/Our-Legacy-4.png";
 import image5 from "@/assets/Our-Legacy-5.png";
-
+import infra1 from "@/assets/infra1.png";
+import infra2 from "@/assets/infra2.png";
+import infra3 from "@/assets/infra3.png";
 
 export interface AboutSectionData {
   title: string;
@@ -10,6 +12,7 @@ export interface AboutSectionData {
     heading: string;
     content: string;
     hideImage?: boolean;
+    customImage?: string[];
   }[];
   images: string[];
 }
@@ -21,7 +24,7 @@ export const aboutContent: Record<string, AboutSectionData> = {
       { heading: "Overview", content: "Panchsheel Knitwears was established in 1978, when garment manufacturing activities were initiated by the founding family, laying a strong foundation built on craftsmanship, consistency, and customer trust. Over the years, this legacy has been carefully nurtured and expanded, reflecting both growth and continuity.", },
       { heading: "Our Approach", content: "Today, Panchsheel Knitwears specializes in knitwear, cloth apparel, kidswear, thermal wear, and other garment categories, catering to diverse market needs with dedication and professionalism.", },
       { heading: "Commitment", content: "Since its inception, the organization has consistently believed that true success lies not only in production capacity but also in a strong commitment to quality assurance, timely delivery, and customer satisfaction. Whether handling small consignments or large-volume orders, the company maintains high production standards and reliable delivery, making it a trusted partner in garment manufacturing." },
-      { heading: "Our Infrastructure", content: "We operate with advanced, state-of-the-art machinery across all departments in our both manufacturing units in Punjab. Equipped with technology sourced from leading global manufacturers, our facilities are designed to deliver international-standard garments with tailored accuracy and cohesion." }
+      { heading: "Our Infrastructure", content: "We operate with advanced, state-of-the-art machinery across all departments in our both manufacturing units in Punjab. Equipped with technology sourced from leading global manufacturers, our facilities are designed to deliver international-standard garments with tailored accuracy and cohesion.", customImage: [infra1, infra2, infra3] }
     ],
     images: [image1, image2, image3, image5]
   },

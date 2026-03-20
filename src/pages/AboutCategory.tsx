@@ -64,7 +64,7 @@ const AboutCategory = () => {
 
         {/* Zig-Zag Content Rows */}
         <div className="flex flex-col gap-20 md:gap-32">
-          {data.description.map(({ heading, content, hideImage }, idx) => {
+          {data.description.map(({ heading, content, hideImage, customImage }, idx) => {
             const isEven = idx % 2 === 0;
 
             return (
@@ -84,10 +84,14 @@ const AboutCategory = () => {
                   </p>
                 </div>
 
-                {/* Image Side (Carousel) */}
+                {/* Image Side (Carousel or Custom Image) */}
                 {!hideImage && (
                   <div className="w-full lg:w-5/12 flex justify-center animate-scale-in order-1 lg:order-none">
-                    <ImageCarousel images={data.images} title={data.title} idx={idx} />
+                    {customImage ? (
+                      <ImageCarousel images={customImage} title={heading || data.title} idx={idx} />
+                    ) : (
+                      <ImageCarousel images={data.images} title={data.title} idx={idx} />
+                    )}
                   </div>
                 )}
               </div>
