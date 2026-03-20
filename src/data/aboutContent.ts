@@ -5,7 +5,9 @@ import image5 from "@/assets/Our-Legacy-5.png";
 import infra1 from "@/assets/infra1.png";
 import infra2 from "@/assets/infra2.png";
 import infra3 from "@/assets/infra3.png";
-
+import kidaxLogo from "@/assets/kidax.jpeg";
+import urbangrantLogo from "@/assets/urbangrant.jpeg";
+import PanchsheelKnitwearsLogo from "@/assets/Panchsheel-Knitwears.jpeg";
 export interface AboutSectionData {
   title: string;
   description: {
@@ -13,6 +15,7 @@ export interface AboutSectionData {
     content: string;
     hideImage?: boolean;
     customImage?: string[];
+    logo?: string;
   }[];
   images: string[];
 }
@@ -47,9 +50,9 @@ export const aboutContent: Record<string, AboutSectionData> = {
   "our-brands": {
     title: "Our Brands",
     description: [
-      { heading: "Overview", content: "To meet evolving fashion needs and customer preferences, Panchsheel Knitwears has introduced two distinct brands — Kidax and UrbanGrand — each representing quality, style, and comfort in its own segment.", },
-      { heading: "Kidax", content: "Kidax focuses on comfortable, durable, and stylish clothing for children. The brand is designed to support active lifestyles while ensuring softness, safety, and everyday comfort.", },
-      { heading: "UrbanGrand", content: "UrbanGrand represents a premium line of apparel that blends modern design with superior fabric quality. With a focus on refined style and craftsmanship, the brand is gaining attention for its contemporary look and premium finish.", },
+      { heading: "Panchsheel Knitwears", content: "To meet evolving fashion needs and customer preferences, Panchsheel Knitwears has introduced two distinct brands — Kidax and UrbanGrand — each representing quality, style, and comfort in its own segment.", logo: PanchsheelKnitwearsLogo },
+      { heading: "Kidax", content: "Kidax focuses on comfortable, durable, and stylish clothing for children. The brand is designed to support active lifestyles while ensuring softness, safety, and everyday comfort.", logo: kidaxLogo },
+      { heading: "UrbanGrand", content: "UrbanGrand represents a premium line of apparel that blends modern design with superior fabric quality. With a focus on refined style and craftsmanship, the brand is gaining attention for its contemporary look and premium finish.", logo: urbangrantLogo },
       { heading: "", content: "Together, these brands reflect Panchsheel Knitwears's commitment to combining manufacturing expertise with modern fashion trends.", hideImage: true },
     ],
     images: [image1, image3, image2]

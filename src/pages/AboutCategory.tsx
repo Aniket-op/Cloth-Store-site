@@ -64,7 +64,7 @@ const AboutCategory = () => {
 
         {/* Zig-Zag Content Rows */}
         <div className="flex flex-col gap-20 md:gap-32">
-          {data.description.map(({ heading, content, hideImage, customImage }, idx) => {
+          {data.description.map(({ heading, content, hideImage, customImage, logo }, idx) => {
             const isEven = idx % 2 === 0;
 
             return (
@@ -75,9 +75,12 @@ const AboutCategory = () => {
                 {/* Content Side */}
                 <div className={`w-full ${hideImage ? 'lg:w-8/12 text-center' : 'lg:w-5/12'} flex flex-col justify-center space-y-6 animate-fade-in order-2 lg:order-none`}>
                   {heading && (
-                    <h3 className={`text-2xl font-display font-semibold text-foreground border-b border-border pb-2 inline-block ${hideImage ? 'mx-auto' : 'self-start'}`}>
-                      {heading}
-                    </h3>
+                    <div className={`flex items-center gap-4 border-b border-border pb-2 ${hideImage ? 'mx-auto' : 'self-start'}`}>
+                      {logo && <img src={logo} alt={`${heading} logo`} className="h-[80px] w-auto object-contain mix-blend-multiply dark:mix-blend-normal dark:bg-white dark:p-1 rounded-sm" />}
+                      <h3 className="text-2xl font-display font-semibold text-foreground">
+                        {heading}
+                      </h3>
+                    </div>
                   )}
                   <p className={`text-base md:text-lg lg:text-xl text-muted-medium leading-relaxed font-light ${hideImage ? 'text-center' : 'text-justify'}`}>
                     {content}
