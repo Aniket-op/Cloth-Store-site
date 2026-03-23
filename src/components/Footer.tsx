@@ -27,7 +27,7 @@ const Footer = () => {
             <img src={logoUrl} alt="UrbanGrand Logo" className="h-14 w-auto rounded-sm bg-white p-1" />
           </Link>
           <div className="space-y-1.5 text-sm text-zinc-400 font-medium tracking-wide">
-            <p className="text-zinc-300">UrbanGrand</p>
+            <p className="font-display text-2xl text-zinc-300">UrbanGrand</p>
           </div>
           {/* Social Icons */}
           <div className="flex gap-3 mt-2">

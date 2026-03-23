@@ -84,7 +84,8 @@ const Navbar = () => {
     <nav className="h-20 flex items-center justify-between px-5 lg:px-12 sticky top-0 z-50 glass-light subtle-border">
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
-        <img src={logoUrl} alt="UrbanGrand Logo" className="h-14 w-auto rounded-sm mix-blend-multiply dark:mix-blend-normal dark:bg-white dark:p-1" />
+        <img src={logoUrl} alt="UrbanGrand Logo" className="h-[50px] w-[50px] rounded-sm mix-blend-multiply dark:mix-blend-normal dark:bg-white dark:p-1" />
+        <span className="font-display text-2xl">UrbanGrand</span>
       </Link>
 
       {/* Desktop nav links */}
