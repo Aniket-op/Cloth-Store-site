@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import CategorySection from "@/components/CategorySection";
 import AssociatesSection from "@/components/AssociatesSection";
+import OurCommitment from "@/components/OurCommitment";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
       <div className="flex flex-col">
         <div className="flex-1 w-full max-w-[1600px] mx-auto overflow-hidden">
           <AssociatesSection />
+          <OurCommitment />
         </div>
 
         {/* Footer pinned at bottom */}
