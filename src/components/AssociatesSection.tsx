@@ -20,7 +20,7 @@ const associateImages = [
 
 const AssociatesSection = () => {
   return (
-    <section className="flex flex-col justify-center py-10 lg:py-5 h-full w-full overflow-hidden bg-background">
+    <section className="flex flex-col w-[80%] mx-auto justify-center py-10 lg:py-10 h-full w-full overflow-hidden bg-background">
       <div className="px-8 lg:px-14 mb-10 lg:mb-16">
         <h2 className="text-2xl lg:text-3xl uppercase tracking-[0.35em] text-foreground font-semibold">
           Our Associates

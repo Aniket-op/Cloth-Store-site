@@ -3,10 +3,9 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
-import home1 from "@/assets/Home-1.png";
-import home2 from "@/assets/Home-2.png";
+import heroSlide2 from "@/assets/men/jacket_1.png";
+import heroSlide3 from "@/assets/women/coat1.png";
+import home1 from "@/assets/kids/hoodies1.png";
 
 const slides = [
   {
@@ -36,13 +35,6 @@ const slides = [
     subtext: <>Playful, cozy, and high-quality clothing perfect<br />for your little ones' everyday adventures.</>,
     cta: "Shop Kids",
     link: "/contact?category=kids",
-  },
-  {
-    image: home2,
-    headline: <>Premium<br /><span className="italic font-normal">Accessories</span></>,
-    subtext: <>Complete your look with our finest winter<br />accessories, from mufflers to thermal wear.</>,
-    cta: "Shop Accessories",
-    link: "/contact?category=accessories",
   },
 ];
 

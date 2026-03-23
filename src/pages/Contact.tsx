@@ -1,31 +1,78 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnquiryForm from "@/components/EnquiryForm";
-import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const slides = [
-  { image: heroSlide1, label: "Terracotta Threads", sub: "Earth-toned heritage collections" },
-  { image: heroSlide2, label: "Aurora", sub: "Luminous avant-garde fashion" },
-  { image: heroSlide3, label: "Golden Gauge", sub: "Precision-crafted luxury wear" },
+import men1 from "@/assets/men/coats1.png";
+import men2 from "@/assets/men/hoodies_1.png";
+import men3 from "@/assets/men/jacket_1.png";
+import men4 from "@/assets/men/sweatshirts_1.png";
+
+import women1 from "@/assets/women/coat1.png";
+import women2 from "@/assets/women/jacket_1.png";
+import women3 from "@/assets/women/jacket_2.png";
+import women4 from "@/assets/women/sweatshirts_1.png";
+
+import kids1 from "@/assets/kids/coat1.png";
+import kids2 from "@/assets/kids/hoodies1.png";
+import kids3 from "@/assets/kids/hoodies2.png";
+import kids4 from "@/assets/kids/jacket_1.png";
+
+const menSlides = [
+  { image: men1, label: "Men's Collection", sub: "Coats" },
+  { image: men2, label: "Men's Collection", sub: "Hoodies & Sweatshirts" },
+  { image: men3, label: "Men's Collection", sub: "Jackets" },
+  { image: men4, label: "Men's Collection", sub: "Modern Wear" },
+];
+
+const womenSlides = [
+  { image: women1, label: "Women's Collection", sub: "Coats" },
+  { image: women2, label: "Women's Collection", sub: "Jackets" },
+  { image: women3, label: "Women's Collection", sub: "Elegant Jackets" },
+  { image: women4, label: "Women's Collection", sub: "Sweatshirts" },
+];
+
+const kidsSlides = [
+  { image: kids1, label: "Kids Collection", sub: "Coats" },
+  { image: kids2, label: "Kids Collection", sub: "Hoodies" },
+  { image: kids3, label: "Kids Collection", sub: "Playful Hoodies" },
+  { image: kids4, label: "Kids Collection", sub: "Jackets" },
+];
+
+const defaultSlides = [
+  { image: men4, label: "Men's Collection", sub: "Classic & Modern Wear" },
+  { image: women3, label: "Women's Collection", sub: "Elegant & Comfortable" },
+  { image: kids3, label: "Kids Collection", sub: "Playful & Cozy Everyday" },
 ];
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category");
+  
+  let activeSlides = defaultSlides;
+  if (category === "men") activeSlides = menSlides;
+  else if (category === "women") activeSlides = womenSlides;
+  else if (category === "kids") activeSlides = kidsSlides;
+
   const [current, setCurrent] = useState(0);
+
+  // Reset slide index if category changes
+  useEffect(() => {
+    setCurrent(0);
+  }, [category]);
 
   // Auto-advance slideshow
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length);
+      setCurrent((c) => (c + 1) % activeSlides.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeSlides.length, category]);
 
-  const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const prev = () => setCurrent((c) => (c === 0 ? activeSlides.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c + 1) % activeSlides.length);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -37,7 +84,7 @@ const Contact = () => {
         {/* ── Left: Image Slideshow ── */}
         <div className="relative hidden lg:block overflow-hidden bg-primary">
           {/* Slides */}
-          {slides.map((slide, i) => (
+          {activeSlides.map((slide, i) => (
             <div
               key={i}
               className="absolute inset-0 transition-opacity duration-700"
@@ -56,9 +103,9 @@ const Contact = () => {
           {/* Slide caption */}
           <div className="absolute bottom-16 left-10 right-10 text-white z-10">
             <p className="text-xs uppercase tracking-[0.35em] opacity-60 mb-1">
-              {slides[current].sub}
+              {activeSlides[current]?.sub}
             </p>
-            <p className="font-display text-3xl font-bold">{slides[current].label}</p>
+            <p className="font-display text-3xl font-bold">{activeSlides[current]?.label}</p>
           </div>
 
           {/* Prev / Next arrows */}
@@ -77,7 +124,7 @@ const Contact = () => {
 
           {/* Dots */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-            {slides.map((_, i) => (
+            {activeSlides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
