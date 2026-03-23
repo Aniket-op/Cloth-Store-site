@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import womenImg from "@/assets/women/coat1.png";
-import menImg from "@/assets/men/jacket_1.png";
-import kidsImg from "@/assets/kids/jacket_1.png";
+import womenImg from "@/assets/women-1.avif";
+import menImg from "@/assets/Men-1.jpg";
+import kidsImg from "@/assets/kids-1.webp";
 
 const categories = [
   { title: "Women's Collection", slug: "women", image: womenImg },

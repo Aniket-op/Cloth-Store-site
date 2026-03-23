@@ -3,9 +3,9 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/men/jacket_1.png";
-import heroSlide3 from "@/assets/women/coat1.png";
-import home1 from "@/assets/kids/hoodies1.png";
+import heroSlide2 from "@/assets/Men-1.jpg";
+import heroSlide3 from "@/assets/women-1.avif";
+import home1 from "@/assets/kids-1.webp";
 
 const slides = [
   {
